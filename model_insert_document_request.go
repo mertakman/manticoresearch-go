@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -14,15 +13,15 @@ import (
 	"encoding/json"
 )
 
-// InsertDocumentRequest Object with document data. 
+// InsertDocumentRequest Object with document data.
 type InsertDocumentRequest struct {
 	// Name of the index
 	Index string `json:"index"`
 	// cluster name
 	Cluster *string `json:"cluster,omitempty"`
-	// Document ID. 
+	// Document ID.
 	Id *int64 `json:"id,omitempty"`
-	// Object with document data 
+	// Object with document data
 	Doc map[string]map[string]interface{} `json:"doc"`
 }
 
@@ -30,7 +29,7 @@ type InsertDocumentRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInsertDocumentRequest(index string, doc map[string]map[string]interface{}, ) *InsertDocumentRequest {
+func NewInsertDocumentRequest(index string, doc map[string]map[string]interface{}) *InsertDocumentRequest {
 	this := InsertDocumentRequest{}
 	this.Index = index
 	this.Doc = doc
@@ -47,7 +46,7 @@ func NewInsertDocumentRequestWithDefaults() *InsertDocumentRequest {
 
 // GetIndex returns the Index field value
 func (o *InsertDocumentRequest) GetIndex() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -58,7 +57,7 @@ func (o *InsertDocumentRequest) GetIndex() string {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *InsertDocumentRequest) GetIndexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -135,7 +134,7 @@ func (o *InsertDocumentRequest) SetId(v int64) {
 
 // GetDoc returns the Doc field value
 func (o *InsertDocumentRequest) GetDoc() map[string]map[string]interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -146,7 +145,7 @@ func (o *InsertDocumentRequest) GetDoc() map[string]map[string]interface{} {
 // GetDocOk returns a tuple with the Doc field value
 // and a boolean to check if the value has been set.
 func (o *InsertDocumentRequest) GetDocOk() (*map[string]map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Doc, true
@@ -209,5 +208,3 @@ func (v *NullableInsertDocumentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

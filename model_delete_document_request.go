@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -14,7 +13,7 @@ import (
 	"encoding/json"
 )
 
-// DeleteDocumentRequest Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://docs.manticoresearch.com/latest/html/http_reference/json_delete.html) 
+// DeleteDocumentRequest Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://docs.manticoresearch.com/latest/html/http_reference/json_delete.html)
 type DeleteDocumentRequest struct {
 	// Index name
 	Index string `json:"index"`
@@ -30,7 +29,7 @@ type DeleteDocumentRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeleteDocumentRequest(index string, ) *DeleteDocumentRequest {
+func NewDeleteDocumentRequest(index string) *DeleteDocumentRequest {
 	this := DeleteDocumentRequest{}
 	this.Index = index
 	return &this
@@ -46,7 +45,7 @@ func NewDeleteDocumentRequestWithDefaults() *DeleteDocumentRequest {
 
 // GetIndex returns the Index field value
 func (o *DeleteDocumentRequest) GetIndex() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -57,7 +56,7 @@ func (o *DeleteDocumentRequest) GetIndex() string {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *DeleteDocumentRequest) GetIndexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -216,5 +215,3 @@ func (v *NullableDeleteDocumentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

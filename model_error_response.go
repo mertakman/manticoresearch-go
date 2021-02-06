@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -16,15 +15,15 @@ import (
 
 // ErrorResponse Error response
 type ErrorResponse struct {
-	Error map[string]map[string]interface{} `json:"error"`
-	Status int32 `json:"status"`
+	Error  map[string]map[string]interface{} `json:"error"`
+	Status int32                             `json:"status"`
 }
 
 // NewErrorResponse instantiates a new ErrorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorResponse(error_ map[string]map[string]interface{}, status int32, ) *ErrorResponse {
+func NewErrorResponse(error_ map[string]map[string]interface{}, status int32) *ErrorResponse {
 	this := ErrorResponse{}
 	this.Error = error_
 	this.Status = status
@@ -41,7 +40,7 @@ func NewErrorResponseWithDefaults() *ErrorResponse {
 
 // GetError returns the Error field value
 func (o *ErrorResponse) GetError() map[string]map[string]interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -52,7 +51,7 @@ func (o *ErrorResponse) GetError() map[string]map[string]interface{} {
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
 func (o *ErrorResponse) GetErrorOk() (*map[string]map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
@@ -65,7 +64,7 @@ func (o *ErrorResponse) SetError(v map[string]map[string]interface{}) {
 
 // GetStatus returns the Status field value
 func (o *ErrorResponse) GetStatus() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -76,7 +75,7 @@ func (o *ErrorResponse) GetStatus() int32 {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *ErrorResponse) GetStatusOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Status, true
@@ -133,5 +132,3 @@ func (v *NullableErrorResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -29,7 +28,7 @@ type UpdateDocumentRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateDocumentRequest(index string, doc map[string]map[string]interface{}, ) *UpdateDocumentRequest {
+func NewUpdateDocumentRequest(index string, doc map[string]map[string]interface{}) *UpdateDocumentRequest {
 	this := UpdateDocumentRequest{}
 	this.Index = index
 	this.Doc = doc
@@ -46,7 +45,7 @@ func NewUpdateDocumentRequestWithDefaults() *UpdateDocumentRequest {
 
 // GetIndex returns the Index field value
 func (o *UpdateDocumentRequest) GetIndex() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -57,7 +56,7 @@ func (o *UpdateDocumentRequest) GetIndex() string {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *UpdateDocumentRequest) GetIndexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -70,7 +69,7 @@ func (o *UpdateDocumentRequest) SetIndex(v string) {
 
 // GetDoc returns the Doc field value
 func (o *UpdateDocumentRequest) GetDoc() map[string]map[string]interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -81,7 +80,7 @@ func (o *UpdateDocumentRequest) GetDoc() map[string]map[string]interface{} {
 // GetDocOk returns a tuple with the Doc field value
 // and a boolean to check if the value has been set.
 func (o *UpdateDocumentRequest) GetDocOk() (*map[string]map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Doc, true
@@ -208,5 +207,3 @@ func (v *NullableUpdateDocumentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

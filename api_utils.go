@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -27,9 +26,9 @@ var (
 type UtilsApiService service
 
 type ApiSqlRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *UtilsApiService
-	body *string
+	body       *string
 }
 
 func (r ApiSqlRequest) Body(body string) ApiSqlRequest {
@@ -51,11 +50,11 @@ The response object depends on the query executed. In select mode the response h
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiSqlRequest
- */
+*/
 func (a *UtilsApiService) Sql(ctx _context.Context) ApiSqlRequest {
 	return ApiSqlRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -134,13 +133,13 @@ func (a *UtilsApiService) SqlExecute(r ApiSqlRequest) (map[string]map[string]int
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
+		var v ErrorResponse
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

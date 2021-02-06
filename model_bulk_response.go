@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -16,8 +15,8 @@ import (
 
 // BulkResponse Success bulk response
 type BulkResponse struct {
-	Items *map[string]interface{} `json:"items,omitempty"`
-	Error *bool `json:"error,omitempty"`
+	Items                *map[string]interface{} `json:"items,omitempty"`
+	Error                *bool                   `json:"error,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -173,5 +172,3 @@ func (v *NullableBulkResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

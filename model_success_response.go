@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -16,11 +15,11 @@ import (
 
 // SuccessResponse Success response
 type SuccessResponse struct {
-	Index *string `json:"_index,omitempty"`
-	Id *int64 `json:"_id,omitempty"`
-	Created *bool `json:"created,omitempty"`
-	Result *string `json:"result,omitempty"`
-	Found *bool `json:"found,omitempty"`
+	Index   *string `json:"_index,omitempty"`
+	Id      *int64  `json:"_id,omitempty"`
+	Created *bool   `json:"created,omitempty"`
+	Result  *string `json:"result,omitempty"`
+	Found   *bool   `json:"found,omitempty"`
 }
 
 // NewSuccessResponse instantiates a new SuccessResponse object
@@ -255,5 +254,3 @@ func (v *NullableSuccessResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

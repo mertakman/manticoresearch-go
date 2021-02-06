@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -28,9 +27,9 @@ var (
 type SearchApiService service
 
 type ApiPercolateRequest struct {
-	ctx _context.Context
-	ApiService *SearchApiService
-	index string
+	ctx              _context.Context
+	ApiService       *SearchApiService
+	index            string
 	percolateRequest *PercolateRequest
 }
 
@@ -45,7 +44,7 @@ func (r ApiPercolateRequest) Execute() (SearchResponse, *_nethttp.Response, Gene
 
 /*
  * Percolate Perform reverse search on a percolate index
- * Performs a percolate search. 
+ * Performs a percolate search.
 This method must be used only on percolate indexes.
 
 Expects two parameters: the index name and an object with array of documents to be tested.
@@ -55,7 +54,7 @@ An example of the documents object:
   {"query":{"percolate":{"document":{"content":"sample content"}}}}
   ```
 
-Responds with an object with matched stored queries: 
+Responds with an object with matched stored queries:
 
   ```
   {'timed_out':false,'hits':{'total':2,'max_score':1,'hits':[{'_index':'idx_pq_1','_type':'doc','_id':'2','_score':'1','_source':{'query':{'match':{'title':'some'},}}},{'_index':'idx_pq_1','_type':'doc','_id':'5','_score':'1','_source':{'query':{'ql':'some | none'}}}]}}
@@ -64,12 +63,12 @@ Responds with an object with matched stored queries:
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param index Name of the percolate index
  * @return ApiPercolateRequest
- */
+*/
 func (a *SearchApiService) Percolate(ctx _context.Context, index string) ApiPercolateRequest {
 	return ApiPercolateRequest{
 		ApiService: a,
-		ctx: ctx,
-		index: index,
+		ctx:        ctx,
+		index:      index,
 	}
 }
 
@@ -149,13 +148,13 @@ func (a *SearchApiService) PercolateExecute(r ApiPercolateRequest) (SearchRespon
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
+		var v ErrorResponse
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -172,8 +171,8 @@ func (a *SearchApiService) PercolateExecute(r ApiPercolateRequest) (SearchRespon
 }
 
 type ApiSearchRequest struct {
-	ctx _context.Context
-	ApiService *SearchApiService
+	ctx           _context.Context
+	ApiService    *SearchApiService
 	searchRequest *SearchRequest
 }
 
@@ -188,7 +187,7 @@ func (r ApiSearchRequest) Execute() (SearchResponse, *_nethttp.Response, Generic
 
 /*
  * Search Performs a search
- * 
+ *
 Expects an object with mandatory properties:
 * the index name
 * the match query object
@@ -213,11 +212,11 @@ For more information about the match query syntax, additional paramaters that ca
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiSearchRequest
- */
+*/
 func (a *SearchApiService) Search(ctx _context.Context) ApiSearchRequest {
 	return ApiSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -296,13 +295,13 @@ func (a *SearchApiService) SearchExecute(r ApiSearchRequest) (SearchResponse, *_
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
+		var v ErrorResponse
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

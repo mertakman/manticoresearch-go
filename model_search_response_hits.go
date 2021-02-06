@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -16,9 +15,9 @@ import (
 
 // SearchResponseHits struct for SearchResponseHits
 type SearchResponseHits struct {
-	MaxScore *int32 `json:"max_score,omitempty"`
-	Total *int32 `json:"total,omitempty"`
-	Hits *[]map[string]interface{} `json:"hits,omitempty"`
+	MaxScore *int32                    `json:"max_score,omitempty"`
+	Total    *int32                    `json:"total,omitempty"`
+	Hits     *[]map[string]interface{} `json:"hits,omitempty"`
 }
 
 // NewSearchResponseHits instantiates a new SearchResponseHits object
@@ -183,5 +182,3 @@ func (v *NullableSearchResponseHits) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -16,11 +15,11 @@ import (
 
 // SearchResponse Response object of a search request
 type SearchResponse struct {
-	Took *int32 `json:"took,omitempty"`
-	TimedOut *bool `json:"timed_out,omitempty"`
+	Took         *int32                             `json:"took,omitempty"`
+	TimedOut     *bool                              `json:"timed_out,omitempty"`
 	Aggregations *map[string]map[string]interface{} `json:"aggregations,omitempty"`
-	Hits *SearchResponseHits `json:"hits,omitempty"`
-	Profile *map[string]interface{} `json:"profile,omitempty"`
+	Hits         *SearchResponseHits                `json:"hits,omitempty"`
+	Profile      *map[string]interface{}            `json:"profile,omitempty"`
 }
 
 // NewSearchResponse instantiates a new SearchResponse object
@@ -255,5 +254,3 @@ func (v *NullableSearchResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

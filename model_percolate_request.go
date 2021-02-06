@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -23,7 +22,7 @@ type PercolateRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPercolateRequest(query map[string]map[string]interface{}, ) *PercolateRequest {
+func NewPercolateRequest(query map[string]map[string]interface{}) *PercolateRequest {
 	this := PercolateRequest{}
 	this.Query = query
 	return &this
@@ -39,7 +38,7 @@ func NewPercolateRequestWithDefaults() *PercolateRequest {
 
 // GetQuery returns the Query field value
 func (o *PercolateRequest) GetQuery() map[string]map[string]interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -50,7 +49,7 @@ func (o *PercolateRequest) GetQuery() map[string]map[string]interface{} {
 // GetQueryOk returns a tuple with the Query field value
 // and a boolean to check if the value has been set.
 func (o *PercolateRequest) GetQueryOk() (*map[string]map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Query, true
@@ -104,5 +103,3 @@ func (v *NullablePercolateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

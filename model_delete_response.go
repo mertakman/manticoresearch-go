@@ -1,12 +1,11 @@
 /*
  * Manticore Search Client
  *
- * Low-level client for Manticore Search. 
+ * Low-level client for Manticore Search.
  *
  * API version: 1.0.0
  * Contact: info@manticoresearch.com
  */
-
 
 package manticoresearch
 
@@ -16,10 +15,10 @@ import (
 
 // DeleteResponse Success response
 type DeleteResponse struct {
-	Index *string `json:"_index,omitempty"`
-	Deleted *int32 `json:"deleted,omitempty"`
-	Id *int64 `json:"_id,omitempty"`
-	Result *string `json:"result,omitempty"`
+	Index   *string `json:"_index,omitempty"`
+	Deleted *int32  `json:"deleted,omitempty"`
+	Id      *int64  `json:"_id,omitempty"`
+	Result  *string `json:"result,omitempty"`
 }
 
 // NewDeleteResponse instantiates a new DeleteResponse object
@@ -219,5 +218,3 @@ func (v *NullableDeleteResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
